@@ -81,6 +81,11 @@ Para este conjunto de datos, se utilizó un mapa de calor con el fin de identifi
 #### Modelo V1. Sigmoid
 Para la primera version de mi modelo, me base en la que fue construida originalmente para la solucion de este problema, realizado por Murat Koklu e Ilker Ali Ozkan (2020). En su version de MLP, usaron una arquitectura que consta de una capa de entrada que se ajusta al número de características del conjunto de datos, posee tambien dos capas ocultas densas con activación `sigmoid` (de 12 y 3 neuronas, respectivamente) y una capa de salida con activación `sigmoid` para calcular la pertenencia de cada clase. Finalmente, se menciona que el modelo se compila teniendo un learning rate del 0.3 y midiendo su rendimiento a través de la métrica de precisión `accuracy`.
 
+<p align="center">
+  <img src="./imagenes/arquitectura.png" alt="Arquitectura" width="60%"/>
+  <br>
+  <em>Imagen 3. Arquitectura del modelo</em>
+</p>
 
 #### Modelo V2. Relu y Softmax
 Para la segunda versión de mi modelo, quise cambiar algunos parámetros de la versión original consolidada. La arquitectura sigue siendo consolidada por la capa de entrada igual al número de características del conjunto de datos, posteriormente de dos capas densas de (12 y 3 neuronas respectivamente) pero con el cambio de usar `relu` como función de activación para introducir no linealidad al modelo. Por último, la capa de salida fue cambiada para usar `softmax` en vez de `sigmoid` para poder calcular el porcentaje de pretenencia a la clase en vez de ser arbitrariamente binario para las 7 clases que existen.
