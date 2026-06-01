@@ -8,7 +8,7 @@ Los frijoles secos pertenecen a una extensa familia de leguminosas, la cual se c
 Bajo este concepto, el objetivo de este proyecto será el de **desarrollar un modelo que logre clasificar de manera efectiva las siete variedades de frijol más comunes en la región de Turquía** basadas en sus características fisiológicas, como lo son su área, perimetro, consistencia, patrón, entre otros más.
 
 ### Descripción del Dataset
-El conjunto de datos utilizado para este proyecto se obtuvo del UC Irvine Machine Learning Repository (https://archive.ics.uci.edu/dataset/602/dry+bean+dataset). Este conjunto de datos comprende de 13,611 instancias de datos recopiladas de las siete variedades de frijol seco más comunes en la región de Turquía, las cuales son: Seker, Barbunya, Bombay, Cali, Dermosan, Horoz y Sira. Cada instancia de frijol seco se caracteriza por 16 atributos, de los cuales 14 son de tipo flotante y 2 son de tipo entero.
+El conjunto de datos utilizado para este proyecto se obtuvo del UC Irvine Machine Learning Repository (https://archive.ics.uci.edu/dataset/602/dry+bean+dataset). Este conjunto de datos comprende de 13,611 instancias de datos recopiladas de las siete variedades de frijol seco más comunes en la región de Turquía, las cuales son: Seker, Barbunya, Bombay, Cali, Dermosan, Horoz y Sira. Cada instancia de frijol seco se caracteriza por 16 atributos, de los cuales 13 son de tipo flotante, 2 son de tipo entero y 1 es un object.
 
 La información contenida en este conjunto de datos se derivó de un estudio fotográfico exhaustivo de miles de imágenes de las variedades de frijol antes mencionadas. Los datos de estas imágenes fueron digitalizados para extraer las siguientes características:
 
@@ -30,8 +30,40 @@ La información contenida en este conjunto de datos se derivó de un estudio fot
 |ShapeFactor2		 | Float	| l/A	
 |ShapeFactor3		 | Float	| A/((L/2)*(L/2)*pi)
 |ShapeFactor4		 | Float    | A/((L/2)*(l/2)*pi)
+|Class               | Object   | Dry-bean species
+
+<p align="center">
+  <img src="./imagenes/frijoles_secos.png" alt="frijoles secos"/>
+  <br>
+  <em>Imagen 1. Tipo de frijoles secos presentes en el dataset</em>
+</p>
 
 ## Metodología
 
 ### Preprocesamiento
+
+El conjunto de datos consta de 13,611 instancias y 16 columnas. De estas 16 columnas, 15 representan las características físicas de los frijoles, previamente descritas.  De las 15 columnas numéricas, 13 son de tipo `float` y 2 son de tipo `integer`. La variable de tipo `object` corresponde a la clase de frijol seco a la que pertenece cada instancia, la cual será utilizada como variable categórica.
+
+De los 13,611 registros que componen el dataset, la distribucion de los datos se encuentra de la siguiente forma por clase:
+- Seker: 2027
+- Barbunya: 1322
+- Bombay: 522
+- Cali: 1630
+- Horoz: 1928
+- Sira: 2636
+- Dermason: 3546
+
+<p align="center">
+  <img src="./imagenes/distribucion_clases.png" alt="grafico de distribución de clases"/>
+  <br>
+  <em>Gráfico 1. Distribución de datos por clases</em>
+</p>
+
+Se observa un desbalance significativo en la distribución de datos entre las distintas clases. No obstante, no considero que este desbalance impacte considerablemente al rendimiento del modelo. Por ejemplo, la variedad de frijol con menor cantidad de datos es la Bombay, la cual, paradójicamente, es la más notablemente grande en comparación con las demás especies. La siguiente variedad con menos datos es la Barbunya, la cual presenta patrones de manchas en la superficie de su grano, lo que facilita su diferenciación del resto, que son completamente lisos y blancos.  Asimismo, es razonable que exista una mayor cantidad de datos para las variedades Sira y Dermason, dado que ambas presentan similitudes físicas considerables con diferencias sutiles; por consiguiente, se requiere una mayor cantidad de datos para estas dos variedades con el fin de que el modelo pueda diferenciarlas con precisión.
+
+<p align="center">
+  <img src="./imagenes/frijoles_lectura.png" alt="Diferencias frijoles"/>
+  <br>
+  <em>Imagen 2. Diferencias morfológicas por especie</em>
+</p>
 
