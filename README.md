@@ -33,7 +33,7 @@ La información contenida en este conjunto de datos se derivó de un estudio fot
 |Class               | Object   | Dry-bean species
 
 <p align="center">
-  <img src="./imagenes/frijoles_secos.png" alt="frijoles secos" width="30%"/>
+  <img src="./imagenes/frijoles_secos.png" alt="frijoles secos" width="50%"/>
   <br>
   <em>Imagen 1. Tipo de frijoles secos presentes en el dataset</em>
 </p>
@@ -54,7 +54,7 @@ De los 13,611 registros que componen el dataset, la distribucion de los datos se
 - Dermason: 3546
 
 <p align="center">
-  <img src="./imagenes/distribucion_clases.png" alt="grafico de distribución de clases" width="40%"/>
+  <img src="./imagenes/distribucion_clases.png" alt="grafico de distribución de clases" width="80%"/>
   <br>
   <em>Gráfico 1. Distribución de datos por clases</em>
 </p>
@@ -62,7 +62,7 @@ De los 13,611 registros que componen el dataset, la distribucion de los datos se
 Se observa un desbalance significativo en la distribución de datos entre las distintas clases. No obstante, no considero que este desbalance impacte considerablemente al rendimiento del modelo. Por ejemplo, la variedad de frijol con menor cantidad de datos es la Bombay, la cual, paradójicamente, es la más notablemente grande en comparación con las demás especies. La siguiente variedad con menos datos es la Barbunya, la cual presenta patrones de manchas en la superficie de su grano, lo que facilita su diferenciación del resto, que son completamente lisos y blancos.  Asimismo, es razonable que exista una mayor cantidad de datos para las variedades Sira y Dermason, dado que ambas presentan similitudes físicas considerables con diferencias sutiles; por consiguiente, se requiere una mayor cantidad de datos para estas dos variedades con el fin de que el modelo pueda diferenciarlas con precisión.
 
 <p align="center">
-  <img src="./imagenes/frijoles_lectura.png" alt="Diferencias frijoles" width="30%"/>
+  <img src="./imagenes/frijoles_lectura.png" alt="Diferencias frijoles" width="50%"/>
   <br>
   <em>Imagen 2. Diferencias morfológicas por especie</em>
 </p>
