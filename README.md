@@ -67,3 +67,12 @@ Se observa un desbalance significativo en la distribución de datos entre las di
   <em>Imagen 2. Diferencias morfológicas por especie</em>
 </p>
 
+#### Mapa de correlación
+
+Para este conjunto de datos, se utilizó un mapa de calor con el fin de identificar la dependencia y correlación entre las variables. El gráfico revela una alta correlación entre las primeras variables de dimensiones, correspondientes al área, perímetro, eje longitudinal mayor y eje longitudinal menor. Esta alta dependencia mutua es razonable, dado que los ejes longitudinales dependen en gran medida del perímetro del frijol, y matemáticamente, el área del frijol también depende de su perímetro.  Asimismo, existe una relación con otras variables de medición similares, como el área convexa y el diámetro equivalente, así como los factores de forma, que comparten cálculos similares. A pesar de la presencia de múltiples variables redundantes, cada una cumple un propósito en el cálculo longitudinal de los frijoles. Por lo tanto, la eliminación de alguna de estas variables podría sesgar los datos de diferencia entre especies similares. En consecuencia, se han conservado todas las variables para el entrenamiento del modelo.
+
+<p align="center">
+  <img src="./imagenes/mapa_calor.png" alt="Mapa de calor" width="60%"/>
+  <br>
+  <em>Gráfico 2. Mapa de calor de correlación</em>
+</p>
