@@ -85,6 +85,20 @@ Para la primera version de mi modelo, me base en la que fue construida originalm
 #### Modelo V2. Relu y Softmax
 Para la segunda versión de mi modelo, quise cambiar algunos parámetros de la versión original consolidada. La arquitectura sigue siendo consolidada por la capa de entrada igual al número de características del conjunto de datos, posteriormente de dos capas densas de (12 y 3 neuronas respectivamente) pero con el cambio de usar `relu` como función de activación para introducir no linealidad al modelo. Por último, la capa de salida fue cambiada para usar `softmax` en vez de `sigmoid` para poder calcular el porcentaje de pretenencia a la clase en vez de ser arbitrariamente binario para las 7 clases que existen.
 
+### Resultados
+#### Mapa de confusión Modelo Sigmoid
+<p align="center">
+  <img src="./imagenes/confusion_sigmoid.png" alt="Mapa de confusion sigmoid" width="60%"/>
+  <br>
+  <em>Gráfico 3. Mapa de confusión del modelo sigmoid</em>
+</p>
+
+<p align="center">
+  <img src="./imagenes/confusion_relu.png" alt="Mapa de confusion relu" width="60%"/>
+  <br>
+  <em>Gráfico 2. Mapa de confusión del modelo relu/softmax</em>
+</p>
+
 ## Referencias
 Koklu M., Ozhan I. (2020). Multiclass classi cation of dry beans using computer vision and machine
 learning techniques. Computers and Electronics in Agriculture. https://www.sciencedirect.com/science/article/pii/S0168169919311573?via%3Dihub 
