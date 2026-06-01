@@ -93,10 +93,11 @@ Para la segunda versión de mi modelo, quise cambiar algunos parámetros de la v
   <em>Gráfico 3. Mapa de confusión del modelo sigmoid</em>
 </p>
 
+#### Mapa de confusión Modelo Relu/Softmax
 <p align="center">
   <img src="./imagenes/confusion_relu.png" alt="Mapa de confusion relu" width="60%"/>
   <br>
-  <em>Gráfico 2. Mapa de confusión del modelo relu/softmax</em>
+  <em>Gráfico 4. Mapa de confusión del modelo relu/softmax</em>
 </p>
 
 ## Referencias
