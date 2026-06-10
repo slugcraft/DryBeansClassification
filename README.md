@@ -135,7 +135,7 @@ modelSig = keras.Sequential([
     layers.Dense(y_train_encoded.shape[1], activation='sigmoid', name='output_layer')
 ])
 
-optimizer_adam = keras.optimizers.Adam(learning_rate=0.3)
+optimizer_adam = keras.optimizers.Adam(learning_rate=0.03)
 ```
 Todo esto resumido en la siguiente imagen:
 
@@ -146,7 +146,7 @@ Todo esto resumido en la siguiente imagen:
 </p>
 
 
-Para el proceso de entrenamiento, el modelo se compila utilizando el optimizador Adam con un learning rate de 0.3. Al tratarse de una clasificación con varias clases, se utiliza la función de pérdida categorical_crossentropy. El entrenamiento consta de 200 épocas con un batch_size de 8 items.
+Para el proceso de entrenamiento, el modelo se compila utilizando el optimizador Adam con un learning rate de 0.03. Al tratarse de una clasificación con varias clases, se utiliza la función de pérdida categorical_crossentropy. El entrenamiento consta de 200 épocas con un batch_size de 8 items.
 ```
 historySig = modelSig.fit(
     x_train_scaled, y_train_encoded,
