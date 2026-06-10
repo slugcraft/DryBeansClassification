@@ -172,7 +172,6 @@ Resumen del modelo:
   <br>
   <label style="display: inline-block;">
     <em style="margin-right: 20px;">Grafico 3. Accuracy del modelo Sigmoid</em>
-
     <em>Grafico 4. Loss del modelo Sigmoid</em>
   </label>
 </p>
