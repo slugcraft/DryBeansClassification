@@ -111,16 +111,45 @@ Para poder evaluar los resultados de los diferentes modelos, se optó por seguir
 |**F1-Score** | Es el promedio armonico entre la Presición y Recall.
 
 ### Modelo
-Para este proyecto, se evaluaran tres tipos de modelos; los primeros dos modelos seran MLP, mientras que el tercer modelo sera un Random Forest. Se compararán los resultados de los modelos y se analizarán sus respectivos resultados.
-
-#### Primera Iteración: Modelo V1. Sigmoid
-Para la primera version de mi modelo, me base en la que fue construida originalmente para la solucion de este problema, realizado por Murat Koklu e Ilker Ali Ozkan (2020). En su version de MLP, usaron una arquitectura que consta de una capa de entrada que se ajusta al número de características del conjunto de datos, posee tambien dos capas ocultas densas con activación `sigmoid` (de 12 y 3 neuronas, respectivamente) y una capa de salida con activación `sigmoid` para calcular la pertenencia de cada clase. Finalmente, se menciona que el modelo se compila teniendo un learning rate del 0.3 y midiendo su rendimiento a través de la métrica de precisión `accuracy`.
+Para este proyecto, se evaluaran tres tipos de modelos; los primeros dos modelos seran MLP (Multi Layer Perceptron), mientras que el tercer modelo sera un Random Forest (Conjunto de Árboles de Decisión). Se compararán los resultados de los modelos y se analizarán sus respectivos resultados.
 
 <p align="center">
   <img src="./imagenes/arquitectura.png" alt="Arquitectura" width="60%"/>
   <br>
-  <em>Imagen 3. Arquitectura del modelo</em>
+  <em>Imagen 3. Arquitectura de los modelos MLP</em>
 </p>
+
+#### Primera Iteración: Modelo V1. Sigmoid
+Para la primera version de mi modelo, me base en la que fue construida originalmente para la solucion de este problema, realizado por Murat Koklu e Ilker Ali Ozkan (2020). 
+En esta primera versión, la arquitectura del modelo comienza con una capa de entrada ajustada dinámicamente al número de características de los datos. A esta le siguen dos capas ocultas densas: la primera con 12 neuronas y la segunda con 3 neuronas, utilizando ambas la función de activación sigmoide. Finalmente, la capa de salida se adapta al número de categorías y emplea también una activación sigmoide. 
+```
+modelSig = keras.Sequential([
+    layers.Input(shape=(x_train_scaled.shape[1],)),
+    layers.Dense(12, activation='sigmoid', name='hidden_layer_1'),
+    layers.Dense(3, activation='sigmoid', name='hidden_layer_2'),
+    layers.Dense(y_train_encoded.shape[1], activation='sigmoid', name='output_layer')
+])
+
+optimizer_adam = keras.optimizers.Adam(learning_rate=0.3)
+```
+Todo esto resumido en la siguiente imagen:
+
+<p align="center">
+  <img src="./imagenes/arqSigmoid.png" alt="Arquitectura" width="60%"/>
+  <br>
+  <em>Imagen 4. Arquitectura del modelo Sigmoid</em>
+</p>
+
+
+Para el proceso de entrenamiento, el modelo se compila utilizando el optimizador Adam con una tasa de aprendizaje de 0.3, un valor. Al tratarse de una clasificación con varias clases, se utiliza la función de pérdida categorical_crossentropy. El entrenamiento consta de 200 épocas con un batch_size de 8 items.
+```
+historySig = modelSig.fit(
+    x_train_scaled, y_train_encoded,
+    epochs=200,
+    batch_size=8,
+    validation_split=0.2,
+)
+```
 
 #### Modelo V2. Relu y Softmax
 Para la segunda versión de mi modelo, quise cambiar algunos parámetros de la versión original consolidada. La arquitectura sigue siendo consolidada por la capa de entrada igual al número de características del conjunto de datos, posteriormente de dos capas densas de (12 y 3 neuronas respectivamente) pero con el cambio de usar `relu` como función de activación para introducir no linealidad al modelo. Por último, la capa de salida fue cambiada para usar `softmax` en vez de `sigmoid` para poder calcular el porcentaje de pretenencia a la clase en vez de ser arbitrariamente binario para las 7 clases que existen.
