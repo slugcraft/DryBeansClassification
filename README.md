@@ -165,13 +165,13 @@ Resumen del modelo:
 
 ##### Resultados
 <p align="center">
-  <label style="display: inline-block; width: 48%; text-align: center;">
-    <img src="./imagenes/precisionSigmoid.png" alt="Accuracy Sigmoid" width="100%"/>
+  <label style="display: inline-block;">
+    <img src="./imagenes/precisionSigmoid.png" alt="Accuracy Sigmoid" width="48%"/>
     <br>
     <em>Grafico 3. Accuracy del modelo Sigmoid</em>
   </label>
-  <label style="display: inline-block; width: 48%; text-align: center;">
-    <img src="./imagenes/lossSigmoid.png" alt="Loss Sigmoid" width="100%"/>
+  <label style="display: inline-block;">
+    <img src="./imagenes/lossSigmoid.png" alt="Loss Sigmoid" width="48%"/>
     <br>
     <em>Grafico 4. Loss del modelo Sigmoid</em>
   </label>
