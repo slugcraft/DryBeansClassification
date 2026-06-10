@@ -165,7 +165,8 @@ Resumen del modelo:
 
 **Resultados**
 
-Como se puede observar, el modelo posee una precision bastante erratica, se logra observar como avanza progresivamente a una predicción más alta, sin embargo su perdida es bastante considerable e igual de erratica que la precisión. Estas fluctuaciones tan violentas demuestran que el modelo es sumamente inestable ante datos nuevos.
+Las gráficas de aprendizaje demuestran que al moderar la tasa de aprendizaje a un valor de 0.03, el modelo Sigmoid logra una convergencia exitosa y exitosa, con un rendimiento óptimo de aproximadamente 92.3% de precisión cerca de la época 15. Sin embargo, posee una ligera distorsión en los datos de validación, no tan graves como para desconfiar del modelo pero si para evidenciar que aun tiene espacios de mejora.
+
 <p align="center">
   <label style="display: inline-block;">
     <img src="./imagenes/precisionSigmoid.png" alt="Accuracy Sigmoid" width="41%"/>
@@ -175,6 +176,13 @@ Como se puede observar, el modelo posee una precision bastante erratica, se logr
   <label style="display: inline-block;">
   <em>Grafico 3. Accuracy del modelo Sigmoid    |    Grafico 4. Loss del modelo Sigmoid</em>
   </label>
+</p>
+
+**Mapa de confusión Modelo Sigmoid**
+<p align="center">
+  <img src="./imagenes/confusion_sigmoid.png" alt="Mapa de confusion sigmoid" width="60%"/>
+  <br>
+  <em>Gráfico 3. Mapa de confusión del modelo sigmoid</em>
 </p>
 
 #### Segunda Iteración: Modelo V2. Relu y Softmax
@@ -229,19 +237,27 @@ Resumen del modelo:
 | Número de Épocas                      | 200
 | Batch size                            | 8
 
-### Resultados
-#### Mapa de confusión Modelo Sigmoid
+**Resultados**
+
+A diferencia del modelo Sigmoid las curvas de esta versión son extraordinariamente limpias y libres de ruido. Esta suavidad es el reflejo directo de la activación Relu en las capas ocultas, la cual permite un flujo continuo de las gradientes sin comprometer los resultados.
+Tambien, se observa como las lineas de entrenamiento y validación van quedando casi iguales conforme avanzan las epocas, esto demuestra que el modelo posee una capacidad de generalización casi perfecta, pues no ha memorizado los datos de entrenamiento presentado overfitting, sino que ha aprendido a generalizar la variación de caracteristicas en cada especie de frijol.
+
 <p align="center">
-  <img src="./imagenes/confusion_sigmoid.png" alt="Mapa de confusion sigmoid" width="60%"/>
+  <label style="display: inline-block;">
+    <img src="./imagenes/precisionRS.png" alt="Accuracy Relu/Softmax" width="41%"/>
+    <img src="./imagenes/lossRS.png" alt="Loss Relu/Softmax" width="40%"/>
+  </label>
   <br>
-  <em>Gráfico 3. Mapa de confusión del modelo sigmoid</em>
+  <label style="display: inline-block;">
+  <em>Grafico 3. Accuracy del modelo Relu/Softmax    |    Grafico 4. Loss del modelo Relu/Softmax</em>
+  </label>
 </p>
 
-#### Mapa de confusión Modelo Relu/Softmax
+**Mapa de confusión Modelo Relu/Softmax**
 <p align="center">
   <img src="./imagenes/confusion_relu.png" alt="Mapa de confusion relu" width="60%"/>
   <br>
-  <em>Gráfico 4. Mapa de confusión del modelo relu/softmax</em>
+  <em>Gráfico 4. Mapa de confusión del modelo Relu/Softmax</em>
 </p>
 
 ## Referencias
