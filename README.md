@@ -126,7 +126,7 @@ Para este proyecto, se evaluaran tres tipos de modelos; los primeros dos modelos
 
 #### Primera Iteración: Modelo V1. Sigmoid
 Para la primera version de mi modelo, me base en la que fue construida originalmente para la solucion de este problema, realizado por Murat Koklu e Ilker Ali Ozkan (2020). 
-En esta primera versión, la arquitectura del modelo comienza con una capa de entrada ajustada dinámicamente al número de características de los datos. A esta le siguen dos capas ocultas densas: la primera con 12 neuronas y la segunda con 3 neuronas, utilizando ambas la función de activación sigmoide. Finalmente, la capa de salida se adapta al número de categorías y emplea también una activación sigmoide. 
+En esta primera versión, la arquitectura del modelo comienza con una capa de entrada ajustada dinámicamente al número de características de los datos. A esta le siguen dos capas ocultas densas: la primera con 12 neuronas y la segunda con 3 neuronas, utilizando ambas la función de activación sigmoid. Finalmente, la capa de salida se adapta al número de categorías y emplea también una activación sigmoid. 
 ```
 modelSig = keras.Sequential([
     layers.Input(shape=(x_train_scaled.shape[1],)),
