@@ -44,12 +44,20 @@ La información contenida en este conjunto de datos se derivó de un estudio fot
 
 El conjunto de datos consta de 13,611 instancias y 16 columnas. De estas 16 columnas, 15 representan las características físicas de los frijoles, previamente descritas.  De las 15 columnas numéricas, 13 son de tipo `float` y 2 son de tipo `integer`. La variable de tipo `object` corresponde a la clase de frijol seco a la que pertenece cada instancia, la cual será utilizada como variable categórica.
 
-De los 13,611 registros que componen el dataset, la distribucion de los datos se encuentra de la siguiente forma por clase:
+De los 13,611 registros que componen el dataset, se encontraron 68 items duplicados.
+<p align="center">
+  <img src="./imagenes/duplicados.png" alt="duplicados" width="50%"/>
+  <br>
+  <em>Fragmento de ejecución del código</em>
+</p>
+
+
+La distribucion de los datos despues del borrado de duplicados se encuentra de la siguiente forma por clase:
 - Seker: 2027
 - Barbunya: 1322
 - Bombay: 522
 - Cali: 1630
-- Horoz: 1928
+- Horoz: 1860
 - Sira: 2636
 - Dermason: 3546
 
@@ -77,8 +85,26 @@ Para este conjunto de datos, se utilizó un mapa de calor con el fin de identifi
   <em>Gráfico 2. Mapa de calor de correlación</em>
 </p>
 
+### Separación de los datos
+#### Datasplit
+Para el datasplit se escogio un porcentaje de 80% de los datos dedicados al training del modelo y el 20% restante dedicado para el test del modelo. Dentro del 80% de train, seran untilizados un 20% para la validación del entrenamiento en ejecución.
+
+#### One-hot encoding y Scaler
+Como se mencionó anteriormente, el conjunto de datos contiene múltiples campos numéricos con rangos numéricos considerablemente elevados y diversos entre sí. Esta variabilidad puede impactar negativamente el proceso de entrenamiento del modelo, ya que los rangos desproporcionados de valores introducen ruido y confusión, lo que resulta en que los números pequeños pierdan prioridad durante la evaluación frente a los números grandes. Al escalar los datos entre -1 y 1, se obliga a la red neuronal a considerar todas las características con la misma importancia y peso. Para ello se uso la siguiente función:
+`scaler = StandardScaler()`
+
+La columna que asigna la variedad del frijol a cada instancia del conjunto de datos es la columna ‘Class’, la cual se caracteriza por contener valores de tipo `String`.  Dado que un modelo MLP no puede interpretar cadenas de caracteres, se implementa un One-hot encoding para traducir dichas cadenas de manera numérica.  Este proceso transforma los datos en columnas de 0 y 1, donde la posición que contiene el 1 indica la variedad de frijol correspondiente a esa instancia. Esto se realiza con la funcion OneHotEncoder() en las columnas class de los datos de train y test:
+
+```
+encoder = OneHotEncoder(sparse_output=False)
+y_train_encoded = encoder.fit_transform(y_train.reshape(-1, 1))
+y_test_encoded = encoder.transform(y_test.reshape(-1, 1))
+```
+
 ### Modelo
-#### Modelo V1. Sigmoid
+Para este proyecto, se evaluaran tres tipos de modelos; los primeros dos modelos seran MLP, mientras que el tercer modelo sera un Random Forest. Se compararán los resultados de los modelos y se analizarán sus respectivos resultados.
+
+#### Primera Iteración: Modelo V1. Sigmoid
 Para la primera version de mi modelo, me base en la que fue construida originalmente para la solucion de este problema, realizado por Murat Koklu e Ilker Ali Ozkan (2020). En su version de MLP, usaron una arquitectura que consta de una capa de entrada que se ajusta al número de características del conjunto de datos, posee tambien dos capas ocultas densas con activación `sigmoid` (de 12 y 3 neuronas, respectivamente) y una capa de salida con activación `sigmoid` para calcular la pertenencia de cada clase. Finalmente, se menciona que el modelo se compila teniendo un learning rate del 0.3 y midiendo su rendimiento a través de la métrica de precisión `accuracy`.
 
 <p align="center">
