@@ -100,6 +100,12 @@ encoder = OneHotEncoder(sparse_output=False)
 y_train_encoded = encoder.fit_transform(y_train.reshape(-1, 1))
 y_test_encoded = encoder.transform(y_test.reshape(-1, 1))
 ```
+### Métricas de evaluación
+Para poder evaluar los resultados de los diferentes modelos, se optó por seguir las mismas metricas usadas en los papers que inspiraron a estre proyecto. Tanto la evaluación inicial realizada por Murat Koklu e Ilker Ali Ozkan en 2020, como la evaluación siguiente de Koeshardianto M., Permana K.E., Satria D. y Setiawan W. usaron las siguientes metricas:
+|**Accuracy** | Mide el porcentaje total de aciertos del modelo.                                        |
+|**Loss**     | Mide que tan equivocadas estan las prediciones del modelo contra las respuestas reales. |
+|**Recall**   | Mide la capacidad del modelo para encontrar los miembros de cada clase.                 |
+|**F1-Score** | Es el promedio armonico entre la Presición y Recall.                                    |
 
 ### Modelo
 Para este proyecto, se evaluaran tres tipos de modelos; los primeros dos modelos seran MLP, mientras que el tercer modelo sera un Random Forest. Se compararán los resultados de los modelos y se analizarán sus respectivos resultados.
@@ -134,3 +140,5 @@ Para la segunda versión de mi modelo, quise cambiar algunos parámetros de la v
 ## Referencias
 Koklu M., Ozhan I. (2020). Multiclass classi cation of dry beans using computer vision and machine
 learning techniques. Computers and Electronics in Agriculture. https://www.sciencedirect.com/science/article/pii/S0168169919311573?via%3Dihub 
+
+Koeshardianto M., Permana K.E., Satria D., Setiawan W. (2023). Beans classification using decision tree and random forest with randomized search hyperparameter tuning. https://scik.org/index.php/cmbn/article/view/8225 
