@@ -102,10 +102,13 @@ y_test_encoded = encoder.transform(y_test.reshape(-1, 1))
 ```
 ### Métricas de evaluación
 Para poder evaluar los resultados de los diferentes modelos, se optó por seguir las mismas metricas usadas en los papers que inspiraron a estre proyecto. Tanto la evaluación inicial realizada por Murat Koklu e Ilker Ali Ozkan en 2020, como la evaluación siguiente de Koeshardianto M., Permana K.E., Satria D. y Setiawan W. usaron las siguientes metricas:
-|**Accuracy** | Mide el porcentaje total de aciertos del modelo.                                        |
-|**Loss**     | Mide que tan equivocadas estan las prediciones del modelo contra las respuestas reales. |
-|**Recall**   | Mide la capacidad del modelo para encontrar los miembros de cada clase.                 |
-|**F1-Score** | Es el promedio armonico entre la Presición y Recall.                                    |
+
+| **Metrica** | **Descripción** 
+|-------------|----------
+|**Accuracy** | Mide el porcentaje total de aciertos del modelo.
+|**Loss**     | Mide que tan equivocadas estan las prediciones del modelo contra las respuestas reales.
+|**Recall**   | Mide la capacidad del modelo para encontrar los miembros de cada clase.
+|**F1-Score** | Es el promedio armonico entre la Presición y Recall.
 
 ### Modelo
 Para este proyecto, se evaluaran tres tipos de modelos; los primeros dos modelos seran MLP, mientras que el tercer modelo sera un Random Forest. Se compararán los resultados de los modelos y se analizarán sus respectivos resultados.
