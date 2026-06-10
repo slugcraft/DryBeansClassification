@@ -91,7 +91,12 @@ Para el datasplit se escogio un porcentaje de 80% de los datos dedicados al trai
 
 #### One-hot encoding y Scaler
 Como se mencionó anteriormente, el conjunto de datos contiene múltiples campos numéricos con rangos numéricos considerablemente elevados y diversos entre sí. Esta variabilidad puede impactar negativamente el proceso de entrenamiento del modelo, ya que los rangos desproporcionados de valores introducen ruido y confusión, lo que resulta en que los números pequeños pierdan prioridad durante la evaluación frente a los números grandes. Al escalar los datos entre -1 y 1, se obliga a la red neuronal a considerar todas las características con la misma importancia y peso. Para ello se uso la siguiente función:
-`scaler = StandardScaler()`
+
+```
+scaler = StandardScaler()
+x_train_scaled = scaler.fit_transform(x_train)
+x_test_scaled = scaler.transform(x_test)
+```
 
 La columna que asigna la variedad del frijol a cada instancia del conjunto de datos es la columna ‘Class’, la cual se caracteriza por contener valores de tipo `String`.  Dado que un modelo MLP no puede interpretar cadenas de caracteres, se implementa un One-hot encoding para traducir dichas cadenas de manera numérica.  Este proceso transforma los datos en columnas de 0 y 1, donde la posición que contiene el 1 indica la variedad de frijol correspondiente a esa instancia. Esto se realiza con la funcion OneHotEncoder() en las columnas class de los datos de train y test:
 
