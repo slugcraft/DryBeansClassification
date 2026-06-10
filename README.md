@@ -286,7 +286,10 @@ model_forest.fit(x_train, y_train)
 
 ## Conclusiones
 **Comparación entre modelos**
-Para la primera parte de esta conclusión, he realizado una comparativa gráfica entre los 3 modelos para observar sus diferencias. De las cuales se puede decir que el análisis comparativo demuestra que el segundo modelo (Relu/Softmax) es la solución óptima para el proyecto, consolidándose como el clasificador más robusto gracias a su alta capacidad para resolver patrones complejos. Mientras que variedades morfológicamente únicas como Bombay son identificadas a la perfección con un 100% de éxito por todos los algoritmos, la verdadera diferencia radica en las clases más difíciles y confusas como Sira. En este escenario crítico, la red neuronal de Relu/Softmax superó consistentemente las limitaciones de la arquitectura Sigmoide y la profundidad del Random Forest, logrando el rendimiento más alto, equilibrado y con mejor capacidad de generalización.
+
+Para la primera parte de esta conclusión, realicé una comparativa gráfica entre los 3 modelos para observar sus diferencias. De estas comparaciones, puede concluir que el análisis demuestra que el segundo modelo (Relu/Softmax) es la mejor solución para este proyecto, pues se consolída como el clasificador más robusto gracias a su alta capacidad para resolver patrones complejos. 
+
+Mientras que variedades morfológicamente únicas como Bombay son identificadas a la perfección con un 100% de éxito en todos los modelos, la verdadera diferencia se encuentra en las clases más difíciles y confusas como Sira. En conclusión, la red neuronal de Relu/Softmax superó consistentemente las limitaciones de la arquitectura Sigmoid y la profundidad del Random Forest, pues logró el rendimiento más alto, equilibrado y con la mejor capacidad de generalización.
 <p align="center">
   <img src="./imagenes/comparativa.png" alt="Comparativa" width="100%"/>
   <br>
@@ -310,6 +313,12 @@ Version Random Forest
 | Precision   | 93.26    | 94
 | Recall      | 93.08    | 94
 | F1-Score    | 93.17    | 94
+
+Comparando los resultados de los papers con mis modelos, se puede concluir que los modelos implementados en este proyecto superaron con éxito los estándares establecidos por el estado del arte. En la versión de MLP con Sigmoid, el ajuste controlado de la tasa de aprendizaje permitió mitigar la inestabilidad del gradiente, pues en el paper se menciona un uso del 0.3 de learning rate en comparación al que terminé usando de 0.03; superando al artículo con un Accuracy (92.32%), una Precisión (94%) y un F1-Score (94%). 
+
+Por otro lado, mi implementación del modelo Random Forest demostró una decisión analítica superior, superando las métricas del paper en todas las metricas con un rendimiento global balanceado del 94% en F1-Score y una precisión general del 92.84%. 
+
+En conclusión, el desarrollo metodológico de este conjunto de datos facilitó significativamente la replicación de los modelos existentes en el estado del arte.  Además, me permitió desarrollar un modelo propio basado en estos, lo que posibilitó la comparación de resultados para un mejor entendimiento y análisis de los mismos. El modelo que desarrollé no solo optimiza su capacidad de generalización, sino que también se consolida como un marco predictivo de alto rendimiento para la clasificación de variedades de frijol seco.
 
 
 ## Referencias
