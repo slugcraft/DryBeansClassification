@@ -286,7 +286,7 @@ model_forest.fit(x_train, y_train)
 
 ## Conclusiones
 <p align="center">
-  <img src="./imagenes/comparativa.png" alt="Comparativa" width="80%"/>
+  <img src="./imagenes/comparativa.png" alt="Comparativa" width="100%"/>
   <br>
   <em>Gráfico 9. Comparativa entre modelos</em>
 </p>
