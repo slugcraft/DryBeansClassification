@@ -141,7 +141,7 @@ Todo esto resumido en la siguiente imagen:
 </p>
 
 
-Para el proceso de entrenamiento, el modelo se compila utilizando el optimizador Adam con una tasa de aprendizaje de 0.3, un valor. Al tratarse de una clasificación con varias clases, se utiliza la función de pérdida categorical_crossentropy. El entrenamiento consta de 200 épocas con un batch_size de 8 items.
+Para el proceso de entrenamiento, el modelo se compila utilizando el optimizador Adam con un learning rate de 0.3. Al tratarse de una clasificación con varias clases, se utiliza la función de pérdida categorical_crossentropy. El entrenamiento consta de 200 épocas con un batch_size de 8 items.
 ```
 historySig = modelSig.fit(
     x_train_scaled, y_train_encoded,
@@ -159,11 +159,13 @@ Resumen del modelo:
 | Función de activación (output)        | Sigmoid
 | Función de perdida (Loss)             | categorical_crossentropy
 | Optimizador                           | Adam
-| Learning Rate                         | 0.3
+| Learning Rate                         | 0.03
 | Número de Épocas                      | 200
-| Batch size                            | 3
+| Batch size                            | 8
 
-##### Resultados
+**Resultados**
+
+Como se puede observar, el modelo posee una precision bastante erratica, se logra observar como avanza progresivamente a una predicción más alta, sin embargo su perdida es bastante considerable e igual de erratica que la precisión. Estas fluctuaciones tan violentas demuestran que el modelo es sumamente inestable ante datos nuevos.
 <p align="center">
   <label style="display: inline-block;">
     <img src="./imagenes/precisionSigmoid.png" alt="Accuracy Sigmoid" width="41%"/>
@@ -175,8 +177,57 @@ Resumen del modelo:
   </label>
 </p>
 
-#### Modelo V2. Relu y Softmax
-Para la segunda versión de mi modelo, quise cambiar algunos parámetros de la versión original consolidada. La arquitectura sigue siendo consolidada por la capa de entrada igual al número de características del conjunto de datos, posteriormente de dos capas densas de (12 y 3 neuronas respectivamente) pero con el cambio de usar `relu` como función de activación para introducir no linealidad al modelo. Por último, la capa de salida fue cambiada para usar `softmax` en vez de `sigmoid` para poder calcular el porcentaje de pretenencia a la clase en vez de ser arbitrariamente binario para las 7 clases que existen.
+#### Segunda Iteración: Modelo V2. Relu y Softmax
+Este modelo constituye en ser una versión corregida y mejorada del MLP anterior. Mantiene la misma estructura de tamaño, 12 neuronas en la primera capa y 3 en la segunda, pero cambia por completo las formulas de activacióm matemáticas para mejorar el aprendizaje. 
+
+La activación de las capas ocultas se cambio a `Relu`, esto permite que la red aprenda patrones complejos y curvas en lugar de simples líneas rectas como lo hacía anteriormente con Sigmoid. Ademas, Relu tiene una evaluación matemática mas rapida, por lo que mejora la velocidad de entrenamiento del modelo.
+
+La activación de la capa de salida se cambió a `Softmax`, que para un problema de clasificación multiclase, usar softmax es más exacto que usar Sigmoid. A diferencia de Sigmoid que consiste en ser una evaluación binaria, softmax distribuye los valores de salida para que sumen exactamente 100%, convirtiendo las salidas de la red en una distribución de probabilidades, en otras palabras, indica que tan probable es que una instancia sea de una especie u otras (Ejem: 85% Seker, 12% Barbunya y 3% Cali). La clase con el porcentaje más alto se queda como la predicción final.
+```
+model = keras.Sequential([
+    layers.Input(shape=(x_train_scaled.shape[1],)),
+    layers.Dense(12, activation='relu', name='hidden_layer_1'),
+    layers.Dense(3, activation='relu', name='hidden_layer_2'),
+    layers.Dense(y_train_encoded.shape[1], activation='softmax', name='output_layer')
+])
+
+model.compile(
+    optimizer='adam',
+    loss='categorical_crossentropy',
+    metrics=['accuracy',
+        tf.keras.metrics.Recall(name='recall'),
+        tf.keras.metrics.F1Score(name='f1_score', average='macro')]
+)
+```
+Todo esto resumido en la siguiente imagen:
+
+
+<p align="center">
+  <img src="./imagenes/arqRS.png" alt="Arquitectura" width="80%"/>
+  <br>
+  <em>Imagen 4. Arquitectura del modelo Relu/Softmax</em>
+</p>
+
+Para el proceso de entrenamiento, el modelo se comporta igual que el anterior, con la diferencia que con el optimizador Adam se deja por default, siendo 0.001 como learning rate. Al tratarse de una clasificación con varias clases, se utiliza la función de pérdida categorical_crossentropy. El entrenamiento consta de 200 épocas con un batch_size de 8 items.
+```
+historySig = modelSig.fit(
+    x_train_scaled, y_train_encoded,
+    epochs=200,
+    batch_size=8,
+    validation_split=0.2,
+)
+```
+Resumen del modelo:
+|**Hiperparametros**| **Parametro**
+|-----|----
+| Capas ocultas                         | 2
+| Función de activación (capas ocultas) | Relu
+| Función de activación (output)        | Softmax
+| Función de perdida (Loss)             | categorical_crossentropy
+| Optimizador                           | Adam
+| Learning Rate                         | 0.001
+| Número de Épocas                      | 200
+| Batch size                            | 8
 
 ### Resultados
 #### Mapa de confusión Modelo Sigmoid
