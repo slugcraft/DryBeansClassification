@@ -167,7 +167,6 @@ Resumen del modelo:
 <p align="center">
   <label style="display: inline-block;">
     <img src="./imagenes/precisionSigmoid.png" alt="Accuracy Sigmoid" width="40%"/>
-    <br>
     <em>Grafico 3. Accuracy del modelo Sigmoid</em>
   </label>
   <label style="display: inline-block;">
