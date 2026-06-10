@@ -318,7 +318,7 @@ Comparando los resultados de los papers con mis modelos, se puede concluir que l
 
 Por otro lado, mi implementación del modelo Random Forest demostró una decisión analítica superior, superando las métricas del paper en todas las metricas con un rendimiento global balanceado del 94% en F1-Score y una precisión general del 92.84%. 
 
-En conclusión, el desarrollo metodológico de este conjunto de datos facilitó significativamente la replicación de los modelos existentes en el estado del arte.  Además, me permitió desarrollar un modelo propio basado en estos, lo que posibilitó la comparación de resultados para un mejor entendimiento y análisis de los mismos. El modelo que desarrollé no solo optimiza su capacidad de generalización, sino que también se consolida como un marco predictivo de alto rendimiento para la clasificación de variedades de frijol seco.
+En conclusión, el desarrollo metodológico de este conjunto de datos me facilitó significativamente la replicación de los modelos existentes en el estado del arte.  Además, me permitió desarrollar un modelo propio basado en estos, lo que posibilitó la comparación de resultados para un mejor entendimiento y análisis de los mismos. El modelo que desarrollé no solo optimiza su capacidad de generalización, sino que también se consolida como un marco predictivo de alto rendimiento para la clasificación de variedades de frijol seco.
 
 
 ## Referencias
