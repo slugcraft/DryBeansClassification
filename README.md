@@ -285,11 +285,31 @@ model_forest.fit(x_train, y_train)
 </p>
 
 ## Conclusiones
+**Comparación entre modelos**
+Para la primera parte de esta conclusión, he realizado una comparativa gráfica entre los 3 modelos para observar sus diferencias. De las cuales se puede decir que el análisis comparativo demuestra que el segundo modelo (Relu/Softmax) es la solución óptima para el proyecto, consolidándose como el clasificador más robusto gracias a su alta capacidad para resolver patrones complejos. Mientras que variedades morfológicamente únicas como Bombay son identificadas a la perfección con un 100% de éxito por todos los algoritmos, la verdadera diferencia radica en las clases más difíciles y confusas como Sira. En este escenario crítico, la red neuronal de Relu/Softmax superó consistentemente las limitaciones de la arquitectura Sigmoide y la profundidad del Random Forest, logrando el rendimiento más alto, equilibrado y con mejor capacidad de generalización.
 <p align="center">
   <img src="./imagenes/comparativa.png" alt="Comparativa" width="100%"/>
   <br>
   <em>Gráfico 9. Comparativa entre modelos</em>
 </p>
+
+**Comparación entre el estado del arte**
+Version Sigmoid
+|**Métricas**| **Paper** | **Mi versión**
+|---|---|---
+| Accuracy    | 91.73    | 92.32
+| Precision   | 93.11    | 94
+| Recall      | 92.68    | 92
+| F1-Score    | 92.88    | 94
+
+Version Random Forest
+|**Métricas**| **Paper** | **Mi versión**
+|---|---|---
+| Accuracy    | 92.10    | 92.84
+| Precision   | 93.26    | 94
+| Recall      | 93.08    | 94
+| F1-Score    | 93.17    | 94
+
 
 ## Referencias
 Koklu M., Ozhan I. (2020). Multiclass classi cation of dry beans using computer vision and machine
