@@ -152,7 +152,7 @@ historySig = modelSig.fit(
 ```
 
 Resumen del modelo:
-|**Hiperparametros**|
+|**Hiperparametros**| **Parametro**
 |-----|----
 | Capas ocultas                         | 2
 | Función de activación (capas ocultas) | Sigmoid
@@ -166,12 +166,13 @@ Resumen del modelo:
 ##### Resultados
 <p align="center">
   <label style="display: inline-block;">
-    <img src="./imagenes/precisionSigmoid.png" alt="Accuracy Sigmoid" width="40%"/>
+    <img src="./imagenes/precisionSigmoid.png" alt="Accuracy Sigmoid" width="41%"/>
     <img src="./imagenes/lossSigmoid.png" alt="Loss Sigmoid" width="40%"/>
   </label>
   <br>
   <label style="display: inline-block;">
-    <em>Grafico 3. Accuracy del modelo Sigmoid</em>
+    <em style="margin-right: 20px;">Grafico 3. Accuracy del modelo Sigmoid</em>
+
     <em>Grafico 4. Loss del modelo Sigmoid</em>
   </label>
 </p>
