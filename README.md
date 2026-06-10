@@ -294,6 +294,7 @@ Para la primera parte de esta conclusión, he realizado una comparativa gráfica
 </p>
 
 **Comparación entre el estado del arte**
+
 Version Sigmoid
 |**Métricas**| **Paper** | **Mi versión**
 |---|---|---
