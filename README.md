@@ -205,7 +205,7 @@ Todo esto resumido en la siguiente imagen:
 <p align="center">
   <img src="./imagenes/arqRS.png" alt="Arquitectura" width="80%"/>
   <br>
-  <em>Imagen 4. Arquitectura del modelo Relu/Softmax</em>
+  <em>Imagen 5. Arquitectura del modelo Relu/Softmax</em>
 </p>
 
 Para el proceso de entrenamiento, el modelo se comporta igual que el anterior, con la diferencia que con el optimizador Adam se deja por default, siendo 0.001 como learning rate. Al tratarse de una clasificación con varias clases, se utiliza la función de pérdida categorical_crossentropy. El entrenamiento consta de 200 épocas con un batch_size de 8 items.
