@@ -108,7 +108,7 @@ Para poder evaluar los resultados de los diferentes modelos, se optó por seguir
 |**Accuracy** | Mide el porcentaje total de aciertos del modelo.
 |**Loss**     | Mide que tan equivocadas estan las prediciones del modelo contra las respuestas reales.
 |**Recall**   | Mide la capacidad del modelo para encontrar los miembros de cada clase.
-|**F1-Score** | Es el promedio armonico entre la Presición y Recall.
+|**F1-Score** | Es el promedio armonico entre la Precisión y Recall.
 
 ### Modelo
 Para este proyecto, se evaluaran tres tipos de modelos; los primeros dos modelos seran MLP (Multi Layer Perceptron), mientras que el tercer modelo sera un Random Forest (Conjunto de Árboles de Decisión). Se compararán los resultados de los modelos y se analizarán sus respectivos resultados.
@@ -135,7 +135,7 @@ optimizer_adam = keras.optimizers.Adam(learning_rate=0.3)
 Todo esto resumido en la siguiente imagen:
 
 <p align="center">
-  <img src="./imagenes/arqSigmoid.png" alt="Arquitectura" width="60%"/>
+  <img src="./imagenes/arqSigmoid.png" alt="Arquitectura" width="80%"/>
   <br>
   <em>Imagen 4. Arquitectura del modelo Sigmoid</em>
 </p>
@@ -150,6 +150,32 @@ historySig = modelSig.fit(
     validation_split=0.2,
 )
 ```
+
+Resumen del modelo:
+|**Hiperparametros**|
+|-----|----
+| Capas ocultas                         | 2
+| Función de activación (capas ocultas) | Sigmoid
+| Función de activación (output)        | Sigmoid
+| Función de perdida (Loss)             | categorical_crossentropy
+| Optimizador                           | Adam
+| Learning Rate                         | 0.3
+| Número de Épocas                      | 200
+| Batch size                            | 3
+
+##### Resultados
+<p align="center">
+  <label style="display: inline-block; width: 48%; text-align: center;">
+    <img src="./imagenes/precisionSigmoid.png" alt="Accuracy Sigmoid" width="100%"/>
+    <br>
+    <em>Grafico 3. Accuracy del modelo Sigmoid</em>
+  </label>
+  <label style="display: inline-block; width: 48%; text-align: center;">
+    <img src="./imagenes/lossSigmoid.png" alt="Loss Sigmoid" width="100%"/>
+    <br>
+    <em>Grafico 4. Loss del modelo Sigmoid</em>
+  </label>
+</p>
 
 #### Modelo V2. Relu y Softmax
 Para la segunda versión de mi modelo, quise cambiar algunos parámetros de la versión original consolidada. La arquitectura sigue siendo consolidada por la capa de entrada igual al número de características del conjunto de datos, posteriormente de dos capas densas de (12 y 3 neuronas respectivamente) pero con el cambio de usar `relu` como función de activación para introducir no linealidad al modelo. Por último, la capa de salida fue cambiada para usar `softmax` en vez de `sigmoid` para poder calcular el porcentaje de pretenencia a la clase en vez de ser arbitrariamente binario para las 7 clases que existen.
