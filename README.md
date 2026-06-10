@@ -171,8 +171,7 @@ Resumen del modelo:
   </label>
   <br>
   <label style="display: inline-block;">
-    <div style="margin-right: 20px;"><em>Grafico 3. Accuracy del modelo Sigmoid</em></div>
-    <em>Grafico 4. Loss del modelo Sigmoid</em>
+  <em>Grafico 3. Accuracy del modelo Sigmoid    |    Grafico 4. Loss del modelo Sigmoid</em>
   </label>
 </p>
 
