@@ -167,11 +167,11 @@ Resumen del modelo:
 <p align="center">
   <label style="display: inline-block;">
     <img src="./imagenes/precisionSigmoid.png" alt="Accuracy Sigmoid" width="40%"/>
-    <em>Grafico 3. Accuracy del modelo Sigmoid</em>
-  </label>
-  <label style="display: inline-block;">
     <img src="./imagenes/lossSigmoid.png" alt="Loss Sigmoid" width="40%"/>
-    <br>
+  </label>
+  <br>
+  <label style="display: inline-block;">
+    <em>Grafico 3. Accuracy del modelo Sigmoid</em>
     <em>Grafico 4. Loss del modelo Sigmoid</em>
   </label>
 </p>
