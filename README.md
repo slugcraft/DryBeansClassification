@@ -182,7 +182,7 @@ Las gráficas de aprendizaje demuestran que al moderar la tasa de aprendizaje a 
 <p align="center">
   <img src="./imagenes/confusion_sigmoid.png" alt="Mapa de confusion sigmoid" width="60%"/>
   <br>
-  <em>Gráfico 3. Mapa de confusión del modelo sigmoid</em>
+  <em>Gráfico 5. Mapa de confusión del modelo sigmoid</em>
 </p>
 
 #### Segunda Iteración: Modelo V2. Relu y Softmax
@@ -249,7 +249,7 @@ Tambien, se observa como las lineas de entrenamiento y validación van quedando 
   </label>
   <br>
   <label style="display: inline-block;">
-  <em>Grafico 3. Accuracy del modelo Relu/Softmax    |    Grafico 4. Loss del modelo Relu/Softmax</em>
+  <em>Grafico 6. Accuracy del modelo Relu/Softmax    |    Grafico 7. Loss del modelo Relu/Softmax</em>
   </label>
 </p>
 
@@ -257,8 +257,32 @@ Tambien, se observa como las lineas de entrenamiento y validación van quedando 
 <p align="center">
   <img src="./imagenes/confusion_relu.png" alt="Mapa de confusion relu" width="60%"/>
   <br>
-  <em>Gráfico 4. Mapa de confusión del modelo Relu/Softmax</em>
+  <em>Gráfico 8. Mapa de confusión del modelo Relu/Softmax</em>
 </p>
+
+#### Tercera Iteración: Modelo V3. Random Forest
+Para la tercera iteración del modelo, me propuse explorar otro estado del arte que haya empleado el mismo conjunto de datos con una implementación distinta. En este proceso, me encontré con el trabajo de Koeshardianto M., Permana K.E., Satria D. y Setiawan W., titulado “Beans classification using decision tree and random forest with randomized search hyperparameter tuning”. Este estudio realiza un análisis muy similar al que estoy llevando a cabo. En el documento, se detalla la comparación entre los modelos desarrollados por el equipo original contra dos nuevos modelos de Árboles de Decisión: el primero, un Árbol de Decisión básico, y el segundo, un Random Forest.  Los resultados y conclusiones indican que el Random Forest emerge como el modelo superior.  Por lo tanto, decidí replicar este modelo para comparar sus resultados con mis otros modelos MLP y evaluar si también resulta ser el más efectivo.
+
+Un árbol de decisión es un modelo que clasifica datos mediante la realización de preguntas lógicas consecutivas en forma de ramas, basadas en las características del conjunto de datos, hasta que llega a una respuesta final o la pureza del nodo es de 100%, significando que ya no puede realizar más preguntas.  Este modelo se distingue por no requerir el escalamiento de los datos ni el uso de encoding para transformar las cadenas de caracteres.  En general, es un modelo bastante intuitivo; sin embargo, es susceptible al overfiting, ya que, sin un control adecuado del crecimiento de sus ramas, puede resultar en un overfiting.
+
+Por otro lado, un Random Forest es un conjunto de múltiples árboles de decisión que funcionan de forma independiente con subconjuntos aleatorios de datos.  Al seleccionar un dato, cada árbol emite un voto por una categoría y el bosque selecciona la categoría con la mayoría de predicciones o votos.  Gracias a este sistema de votación, se mitiga el problema del overfiting presente en los árboles de decisión, lo que resulta en datos más precisos.
+
+En el estado del arte, se trabajó con multiples cantidades de arboles por cada bosque (20-300). En el cual se concluye que el modelo más óptimo es el que consta de 300 arboles en su bosque. Para el random forest no especifica un maximo de profundidad para cada arbol, por lo que se dejan de manera independiente cada árbol. Tambien, en el articulo se realizan dos versiones de ambos modelos; la primera versión es con los datos crudos del dataset, y la segunda versión se normalizó los datos de las 7 categorias de frijol. Por lo tanto, la comparación del modelo será directamente con la primera version de datos crudos.
+
+```
+model_forest = RandomForestClassifier(n_estimators=300, random_state=67)
+
+model_forest.fit(x_train, y_train)
+```
+
+
+**Mapa de confusión Modelo Random Forest**
+<p align="center">
+  <img src="./imagenes/confusion_RF.png" alt="Mapa de confusion RF" width="60%"/>
+  <br>
+  <em>Gráfico 8. Mapa de confusión del modelo Random Forest</em>
+</p>
+
 
 ## Referencias
 Koklu M., Ozhan I. (2020). Multiclass classi cation of dry beans using computer vision and machine
