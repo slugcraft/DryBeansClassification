@@ -269,6 +269,7 @@ Por otro lado, un Random Forest es un conjunto de múltiples árboles de decisi�
 
 En el estado del arte, se trabajó con multiples cantidades de arboles por cada bosque (20-300). En el cual se concluye que el modelo más óptimo es el que consta de 300 arboles en su bosque. Para el random forest no especifica un maximo de profundidad para cada arbol, por lo que se dejan de manera independiente cada árbol. Tambien, en el articulo se realizan dos versiones de ambos modelos; la primera versión es con los datos crudos del dataset, y la segunda versión se normalizó los datos de las 7 categorias de frijol. Por lo tanto, la comparación del modelo será directamente con la primera version de datos crudos.
 
+Este modelo esta constituido de 300 arboles en el bosque:
 ```
 model_forest = RandomForestClassifier(n_estimators=300, random_state=67)
 
@@ -283,6 +284,12 @@ model_forest.fit(x_train, y_train)
   <em>Gráfico 8. Mapa de confusión del modelo Random Forest</em>
 </p>
 
+## Conclusiones
+<p align="center">
+  <img src="./imagenes/comparativa.png" alt="Comparativa" width="80%"/>
+  <br>
+  <em>Gráfico 9. Comparativa entre modelos</em>
+</p>
 
 ## Referencias
 Koklu M., Ozhan I. (2020). Multiclass classi cation of dry beans using computer vision and machine
